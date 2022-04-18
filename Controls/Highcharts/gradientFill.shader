@@ -1,4 +1,6 @@
-﻿Shader "GUI/GradientFill"
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "GUI/GradientFill"
 {
 	Properties
 	{
@@ -53,7 +55,7 @@
             {
                 v2f o;
                 o.worldPosition = v.vertex;
-                o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+                o.vertex = UnityObjectToClipPos(v.vertex);
                 o.color = _Color;
                 o.texcoord = v.texcoord;
                 return o;
